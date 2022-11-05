@@ -9,7 +9,7 @@ export default async function (req, res) {
   const completion = await openai.createCompletion({
     model: "text-davinci-002",
     prompt: generatePrompt(req.body.animal),
-    temperature: 0.6,
+    temperature: 1,
   });
   res.status(200).json({ result: completion.data.choices[0].text });
 }
@@ -17,12 +17,17 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+  return `write taglines about
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
+Animal: a tagline for an icecream shop
+Names:  The best ice cream in town!
+Animal: write tagline for an web development website
+Names: Small business? Start-up? We can help get your website up and running.
+Animal: Fashion Company
+Names: Dresses, jeans, tops, and more. We have the latest fashion for
+Animal: write tagline for an escort company
+Names: Looking for a good time? Look no further, our escorts are the best in town!
+Animal: write tagline for an web development website
 Animal: ${capitalizedAnimal}
 Names:`;
 }

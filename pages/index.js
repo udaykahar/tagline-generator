@@ -23,25 +23,30 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>Tagline generator</title>
         <link rel="icon" href="/dog.png" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <script src="https://cdn.tailwindcss.com"></script>
       </Head>
-
+      <div className="absolute inset-28">
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <span class="material-symbols-outlined text-5xl">
+          edit_note
+        </span>
+        <h3>Generate Taglines with AI</h3>
         <form onSubmit={onSubmit}>
           <input
             type="text"
             name="animal"
-            placeholder="Enter an animal"
+            placeholder="write a tagline for an icecream shop"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Generate Tagline" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>
+      </div>
     </div>
   );
 }
