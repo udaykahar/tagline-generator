@@ -1,6 +1,27 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBaPaLObrzurYtKE6Lf5Ao7ItuCVYDi92M",
+  authDomain: "taglinegenerator.firebaseapp.com",
+  projectId: "taglinegenerator",
+  storageBucket: "taglinegenerator.appspot.com",
+  messagingSenderId: "352461476176",
+  appId: "1:352461476176:web:75caf3930248d599a41c55",
+  measurementId: "G-NXKLV6G8Q7"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
